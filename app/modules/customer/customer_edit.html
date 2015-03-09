@@ -1,11 +1,11 @@
 <div layout="column" flex id="content">
     <md-content layout="column" flex class="md-padding">
 
-        <div ng-controller="srs.customerNewCtrl" layout="column">
+        <div ng-controller="srs.customerEditCtrl" layout="column">
 
 
             <md-content class="md-padding">
-                <form name="userForm" ng-submit="save()" >
+                <form name="userForm" ng-submit="update()" >
 
                     <div layout layout-sm="column">
                         <md-input-container flex>
@@ -47,7 +47,7 @@
                     </md-input-container>
                     <md-content layout="row"  layout-padding layout-align="center end" >
                         <md-button class="md-raised" href="#/customer">Cancel</md-button>
-                        <md-button class="md-raised md-primary">Save</md-button>
+                        <md-button class="md-raised md-primary">update</md-button>
                     </md-content>
                 </form>
             </md-content>
