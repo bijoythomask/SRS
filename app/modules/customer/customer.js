@@ -14,7 +14,7 @@ angular.module('srs.customer', [
                     templateUrl: 'modules/customer/customer_add.html',
                     controller: 'srs.customerNewCtrl'
                 });
-                $routeProvider.when('/customer_edit', {
+                $routeProvider.when('/customer_edit/:index', {
                     templateUrl: 'modules/customer/customer_edit.html',
                     controller: 'srs.customerEditCtrl'
                 });
@@ -26,7 +26,7 @@ angular.module('srs.customer', [
 
 customerListCtrl.$inject = ['$scope', 'Customer'];
 customerNewCtrl.$inject = ['$scope','$location', 'Customer'];
-customerEditCtrl.$inject=['$scope','$location','Customer'];
+customerEditCtrl.$inject=['$scope','$routeParams','$location','Customer'];
 
 
 function customerNewCtrl($scope,$location, Customer) {
@@ -55,8 +55,13 @@ function customerListCtrl($scope, Customer) {
     
 }
 
-function customerEditCtrl($scope, $location, Customer){
-    $scope.customers = Customer;
+function customerEditCtrl($scope, $routeParams ,$location, Customer){
+    var index = $routeParams.index;
+    console.log(index);
+    $scope.customers =Customer;
+    $scope.user = $scope.customers+
+            [index];
+    console.log($scope.user);
     $scope.update = function(){
         $scope.customers.$save($scope.user);
         $location.path('/customer');
