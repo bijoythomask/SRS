@@ -6,7 +6,8 @@ angular.module('srs', [
   'ngMaterial',
   'srs.customer',
   'srs.sales',
-  'myApp.version'
+  'myApp.version',
+  'ngAnimate'
 ])
 .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/customer'});
